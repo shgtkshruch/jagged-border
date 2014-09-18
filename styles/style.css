@@ -1,0 +1,35 @@
+body {
+  position: relative;
+  background-color: #3b4c5c;
+  height: 100vh;
+}
+
+.jagged-border {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.jagged-border {
+  width: 80%;
+  height: 50px;
+  -webkit-filter: drop-shadow(rgba(0, 0, 0, 0.3) 0 1px 2px);
+          filter: drop-shadow(rgba(0, 0, 0, 0.3) 0 1px 2px);
+}
+
+.lightgray-bg {
+  background-color: whitesmoke;
+}
+.lightgray-bg:before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  width: 100%;
+  height: 20px;
+  background: -webkit-linear-gradient(45deg, transparent 33.33333%, whitesmoke 33.33333%, whitesmoke 66.66667%, transparent 66.66667%), -webkit-linear-gradient(135deg, transparent 33.33333%, whitesmoke 33.33333%, whitesmoke 66.66667%, transparent 66.66667%);
+  background: linear-gradient(45deg, transparent 33.33333%, whitesmoke 33.33333%, whitesmoke 66.66667%, transparent 66.66667%), linear-gradient(-45deg, transparent 33.33333%, whitesmoke 33.33333%, whitesmoke 66.66667%, transparent 66.66667%);
+  background-size: 40px 80px;
+}
