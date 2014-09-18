@@ -1,1 +1,55 @@
+body {
+  position: relative;
+  background-color: #3b4c5c;
+  height: 100vh;
+}
 
+%l-jagged {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.jagged-border {
+  @extend %l-jagged;
+
+  width: 80%;
+  height: 50px;
+  filter: drop-shadow(rgba(0,0,0,.3) 0 1px 2px);
+}
+
+@mixin jaggy($main-color, $size: 20px) {
+  $unit: 100% / 3;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: $size / -2;
+    width: 100%;
+    height: $size / 2;
+    background: 
+      linear-gradient(
+        45deg,
+        transparent $unit,
+        $main-color $unit,
+        $main-color $unit * 2,
+        transparent $unit * 2
+      ),
+      linear-gradient(
+        -45deg,
+        transparent $unit,
+        $main-color $unit,
+        $main-color $unit * 2,
+        transparent $unit * 2
+      );
+    background-size: $size $size * 2;
+  }
+}
+
+.lightgray-bg {
+  background-color: whitesmoke;
+  @include jaggy(whitesmoke, 40px);
+}
